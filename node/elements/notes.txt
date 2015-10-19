@@ -11,6 +11,7 @@ upg:
 	upg: nimble --example  .. generates example app
 
 	upg: copy media to ./build/media/	//upg: option to include media to this.media['name'] as dataurl and or option as blob. into bundle.js or other options? (lib hook to install to indexedDB?)
+		- but for now use a local ../media folder?
 
 	upg: bundle bundle.js into local index.html file.
 
