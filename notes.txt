@@ -4,3 +4,5 @@ Object Application Builder  -- create an application out of object componants.
 -----------------------------
 
 next: upload nimble node elements lib to npm
+
+next: better format README.md  (so looks good after markup)
