@@ -1,1 +1,0 @@
-require('./x-widget.js')
