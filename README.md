@@ -1,2 +1,2 @@
 # nimble
-Web Application Framework
+A Lightweight Web Application Framework

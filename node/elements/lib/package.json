@@ -1,0 +1,24 @@
+{
+  "name": "nimble-elements",
+  "version": "0.1.2",
+  "description": "nimble elements - 2015.10.16",
+  "bin": {
+    "nimble": "./bin/nimble"
+  },
+  "main": "./lib/nimble.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babelify": "^6.3.0",
+    "bluebird": "^2.10.2",
+    "browserify": "^11.2.0",
+    "chalk": "^1.1.1",
+    "copyfiles": "^0.2.1",
+    "del": "^2.0.2",
+    "glob": "^5.0.15",
+    "mkdirp": "^0.5.1"
+  }
+}

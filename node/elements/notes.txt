@@ -1,0 +1,24 @@
+upg:
+
+	nimble --bootstrap (or --no-bootstrap) .. if folder empty?  (global config possible?)
+
+	system to watch for changes to source files and run nimble build on changes
+
+	bundle live-server? https://www.npmjs.com/package/live-server -- run via api.
+
+	(optionally: nimble --bootstrap)  .. generates example framework in current directly.. (ask if dir isn't empty)
+
+	upg: copy media to ./build/media/	//upg: option to include media to this.media['name'] as dataurl and or option as blob. into bundle.js or other options? (lib hook to install to indexedDB?)
+
+	upg: bundle bundle.js into local index.html file.
+
+	upg: support for service worker? (perhaps a dual app? .. installer/loader app, and loaded updateable indexedDB app?)
+
+
+
+nimble-node-element
+	- add propery change and such events accessable to created.
+	- add hook for decendant setting
+	- upg: auto dependentcies so can nest/reuse.
+
+perhaps nimble node elements should be it's own project (instead of all the node versions) .. upg: split nimble versions to single target projects? (how to do that cascade reference like?) .. perhaps only in npm have it seperate?
