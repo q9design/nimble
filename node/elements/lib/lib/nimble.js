@@ -1,5 +1,5 @@
 //
-// 2015.10.16 -- nimble.js
+// 2015.10.20 -- nimble.js
 //
 
 
@@ -13,6 +13,10 @@ var fs = Promise.promisifyAll(require('fs'))
 var glob = Promise.promisify(require('glob'))
 var del = require('del')
 var copyfiles = Promise.promisify(require('copyfiles'))
+var fse = Promise.promisifyAll(require('fs-extra'))
+
+var argv = require('minimist')(process.argv.slice(2));
+
 
 var exports = module.exports = {}
 
@@ -32,30 +36,49 @@ exports.build = function(opts){
 
 	var template_path = path.resolve(__dirname+'/../templates') // upg: overridable templates (by string or path etc)
 
-	var templates = {}
+	var system_template_path = path.resolve(template_path+'/system') // upg: overridable templates (by string or path etc)
+	var bootstrap_template_path = path.resolve(template_path+'/bootstrap') // upg: overridable templates (by string or path etc)
+
+	var system_templates = {}
 	
 	console.log('nimble process >>> ',chalk.green(source_path),'to',chalk.red(dest_path),'using',chalk.yellow(template_path))
 
+	var bootstrap = function(){
+		return new Promise(function(res,rej){
+			if(argv.bootstrap){
+				var src = bootstrap_template_path+"/basic"
+				var dest = source_path
+				console.log("bootstrap",chalk.green(src),'to',chalk.red(dest))
+
+				fse.copyAsync(src,dest,{clobber:false}).then(res).catch(rej)
+				}//if
+			else
+				res(true)
+			})//func
+		}//func
+
 	// ----------
-	mkdirp(dest_path).
+	bootstrap().then(function(){
+		return mkdirp(dest_path)
+		}).
 		then(function(r){
-			//load templates
-			return glob(template_path+"/*.js").each(function(item,index,value){
+			//load system_templates
+			return glob(system_template_path+"/*.js").each(function(item,index,value){
 				var b = path.parse(item).base
 
 				return fs.readFileAsync(item).then(function(r){
-					templates[b] = r.toString()
+					system_templates[b] = r.toString()
 					})//each
 
 				})//func
 			}).
 		then(function(r){
-			console.log('loaded templates',r)//templates,r)		
+			console.log('loaded system_templates',r)//system_templates,r)		
 
 			var d = [dest_path+"/*.js",dest_path+"/*.html"]
 			return del(d)
 			}).
-		then(function(r){
+		then(function(r){ //upg: fse.emptyDir
 			console.log('deleted old build files',r)
 			return copyfiles(['*.js',dest_path])
 			}).
@@ -133,7 +156,7 @@ exports.build = function(opts){
 	function buildObject(v){
 		return new Promise(function(res,rej){
 
-			var out = templates['element.js']
+			var out = system_templates['element.js']
 			var pp = path.parse(v)
 
 			console.log('pp',pp)

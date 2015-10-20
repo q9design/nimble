@@ -2,7 +2,7 @@
  
  TL;DR;
 
-	install:  sudo npm i -g nimble
+	install:  sudo npm i -g nimble-elements
 
 	  build:  nimble (from your development folder)
 
@@ -24,7 +24,7 @@ Nimble Node Elements ...
 ##############
 1. SETUP
 
-sudo npm i -g nimble
+sudo npm i -g nimble-elements
 sudo npm i -g live-server (helpful if developing locally)
 
 ##############

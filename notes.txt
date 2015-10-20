@@ -3,6 +3,25 @@ Object Application Builder  -- create an application out of object componants.
 
 -----------------------------
 
+next: build framework
+	- index.html
+	- [hello]
+		- body.html (hello)
+		- created.js  // dom.innerHTML = 'HI!'
+			      // this.onattached = function(){}
+			      // this.onremoved = function(){}  
+
+next: upgrade npm details
+	- description
+	- README
+	(hint to use live-server --wait=350 .build)
+
 next: upload nimble node elements lib to npm
 
-next: better format README.md  (so looks good after markup)
+next: better format README.md  (so looks good after markup) .. add README.md in npm lib section.
+
+upg:
+	nimble suite
+		- nimble-elements browser
+		- nimble-elements electron
+		- nimble-elements cordovia

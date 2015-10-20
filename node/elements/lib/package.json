@@ -1,15 +1,29 @@
 {
   "name": "nimble-elements",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "nimble elements - 2015.10.16",
   "bin": {
     "nimble": "./bin/nimble"
   },
+  "keywords": [
+    "framework",
+    "web app",
+    "webapp",
+    "lightweight",
+    "light weight",
+    "compiler",
+    "babel",
+    "es6"
+  ],
   "main": "./lib/nimble.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/q9design/nimble.git"
+  },
+  "author": "Q9 Design",
   "license": "ISC",
   "dependencies": {
     "babelify": "^6.3.0",
@@ -18,7 +32,9 @@
     "chalk": "^1.1.1",
     "copyfiles": "^0.2.1",
     "del": "^2.0.2",
+    "fs-extra": "^0.24.0",
     "glob": "^5.0.15",
+    "minimist": "^1.2.0",
     "mkdirp": "^0.5.1"
   }
 }

@@ -17,6 +17,8 @@ upg:
 
 	upg: support for service worker? (perhaps a dual app? .. installer/loader app, and loaded updateable indexedDB app?)
 
+	upg: add build path option (so not default .build)
+
 
 
 nimble-node-element
