@@ -12,6 +12,8 @@ nimble --bootstrap
 # compile/run
 nimble
 
-compiles project to .build  --  tip: use live-server --wait=350 .build
+compiles project to .build
+
+view by browsing ./build/index.html  --  tip: use live-server --wait=350 .build
 
 

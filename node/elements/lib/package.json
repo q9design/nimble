@@ -1,7 +1,7 @@
 {
   "name": "nimble-elements",
   "version": "0.1.3",
-  "description": "nimble elements - 2015.10.16",
+  "description": "Lightweight Web Application Framework - 2015.10.20",
   "bin": {
     "nimble": "./bin/nimble"
   },
@@ -13,6 +13,7 @@
     "light weight",
     "compiler",
     "babel",
+    "browserify",
     "es6"
   ],
   "main": "./lib/nimble.js",

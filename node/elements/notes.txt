@@ -19,6 +19,8 @@ upg:
 
 	upg: add build path option (so not default .build)
 
+	upg: nimble -v .. display current version (taken from package.json? .. or a designed way?)
+
 
 
 nimble-node-element
