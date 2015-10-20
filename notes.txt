@@ -25,3 +25,7 @@ upg:
 		- nimble-elements browser
 		- nimble-elements electron
 		- nimble-elements cordovia
+
+
+upg: nimble --live   ... automaticly monitors files for changes.. runs web server.. updates build and reloads webserver on change.
+	(upg: update only internal objects when internal object changes)

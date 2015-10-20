@@ -17,3 +17,7 @@ compiles project to .build
 view by browsing ./build/index.html  --  tip: use live-server --wait=350 .build
 
 
+-------------------------
+node version 4 or greater.
+
+

@@ -1,3 +1,5 @@
+// var $ = require('jquery')
+
 // var h = this.body
 // dom.innerHTML = 'hi'
 
