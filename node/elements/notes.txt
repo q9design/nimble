@@ -1,3 +1,5 @@
+next: finish world clock app
+
 upg:
 
 	nimble --bootstrap (or --no-bootstrap) .. if folder empty?  (global config possible?)
@@ -20,6 +22,20 @@ upg:
 	upg: add build path option (so not default .build)
 
 	upg: nimble -v .. display current version (taken from package.json? .. or a designed way?)
+
+	upg: nimble --bootstrap-list   .. list possable bootstrap options (how can we get tab to do this?)
+
+	upg: nimble -bootstrap examples .. expl look for examples that are very direct to nimble (less it's own code needed)
+
+	upg: nimble --bootstrap world-clocks .. to warn/manage if already have files in dest path
+
+	upg?: should we make the app in an app/ folder.. this way could have multple within the same?  (or why not just do that on your own and nimble from each one?)
+
+	upg: npm init / install automatically programattically if none found?
+
+	upg: bootstrap example how to use npm packages (moment)
+
+
 
 
 

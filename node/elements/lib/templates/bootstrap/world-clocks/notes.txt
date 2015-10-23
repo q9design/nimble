@@ -1,0 +1,5 @@
+upg: add differnt types of clockfaces.  (each as it's own nimble object given a time offset?)
+
+upg: support time forwarding (maybe make a version 2 that uses moment?)
+
+upg: make work no matter where at.
