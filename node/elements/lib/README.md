@@ -34,7 +34,7 @@ Nimble Elements is fortified with
 	- custom element directories
 
 
-Bringing to your browser based web application
+Bringing to your browser based application
 
 	- new javascript features
 	- npm libraries
@@ -47,7 +47,7 @@ Bundled into two files
 	- bundle.js
 
 
-From a set of element objects and files (files and folders)
+From a set of element files and objects (files and folders)
 
 	+ [myproject]
 
@@ -68,20 +68,21 @@ From a set of element objects and files (files and folders)
 		- index.html
 	
 
-Each directory of your project generates a custom html tag.  e.g. **hello-widget** directory becomes **\<hello-widget\>\</hello-widget\>**
+Each sub-directory of your project generates a custom html tag.  e.g. the **hello-widget** directory becomes **\<hello-widget\>\</hello-widget\>**
 
-	element files
+	directory contents
 		- created.js -- called when your <custom-tag></custom-tag> is created.
-			- this['body'] = body.html contents (also the shadow dom default content)
+			- 'this' is the instance of the created element.
+			- this['body'] = body.html contents (also the shadow dom default content.)
 			- this['anyname'] = anyname.html contents.
-			- var dom = your custom tag's shadow dom object
-		- body.html >> default html content
-		- anyname.html >> *.html files are provided to created.js as this['filename'] properties
+			- var dom = your custom tag's shadow dom object.
+
+		- *.html files are provided to created.js as this['filename'] properties.
 
 
 Standard npm packages may be added to your application
 
-	npm i package-name
+	npm i --save package-name
 
 	
 And included using require
