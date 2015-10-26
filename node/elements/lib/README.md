@@ -77,7 +77,7 @@ Each sub-directory of your project generates a custom html tag.  e.g. the **hell
 			- this['anyname'] = anyname.html contents.
 			- var dom = your custom tag's shadow dom object.
 
-		- *.html files are provided to created.js as this['filename'] properties.
+		- *.html file content is provided to created.js as this['filename'] property.
 
 
 Standard npm packages may be added to your application
