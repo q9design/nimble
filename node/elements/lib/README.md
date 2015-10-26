@@ -43,6 +43,7 @@ Bundled into two files
 
 
 From a set of element objects and files
+
 	+ [myproject]
 		+ [display-box]
 			| body.html
@@ -64,7 +65,7 @@ From a set of element objects and files
 Each directory of your project is compiled to a custom html tag.  e.g. [hello-widget] directory becomes \<hello-widget\>\</hello-widget\>
 
 	containing
-		- created.js >> called when your <custom-tag></custom-tag> is created.
+		- created.js -- called when your <custom-tag></custom-tag> is created.
 			- this['body'] = body.html contents (also the shadow dom default content)
 			- this['anyname'] = anyname.html contents.
 			- var dom = your custom tag's shadow dom object
@@ -79,6 +80,6 @@ Standard npm packages may be added to your application
 	
 And included using require
 
-	var p = require('package-name)
+	var p = require('package-name')
 
 
