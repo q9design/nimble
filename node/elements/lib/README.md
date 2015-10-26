@@ -71,7 +71,7 @@ From a set of element files and objects (files and folders)
 Each sub-directory of your project generates a custom html tag.  e.g. the **hello-widget** directory becomes **\<hello-widget\>\</hello-widget\>**
 
 	directory contents
-		- created.js -- called when your <custom-tag></custom-tag> is created.
+		- created.js -- called when an instance of your <custom-tag></custom-tag> is created.
 			- 'this' is the instance of the created element.
 			- this['body'] = body.html contents (also the shadow dom default content.)
 			- this['anyname'] = anyname.html contents.
