@@ -1,5 +1,5 @@
 //
-// 2015.10.16
+// 2015.10.26
 // 
 
 // upg: auto models
@@ -7,7 +7,6 @@ var p = Object.create(HTMLElement.prototype)
 
 
 p.createdCallback = function(){
-	var here = this
 	var dom = this.createShadowRoot() // upg: this._dom = dom  (or allow dom direct access?)
 
 	var name = `{{tagname}}` // or map values in files?
