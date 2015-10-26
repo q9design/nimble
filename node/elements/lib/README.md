@@ -45,6 +45,7 @@ Bundled into two files
 From a set of element objects and files
 
 	+ [myproject]
+
 		+ [display-box]
 			| body.html
 			| left.html
@@ -62,9 +63,9 @@ From a set of element objects and files
 		- index.html
 	
 
-Each directory of your project is compiled to a custom html tag.  e.g. [hello-widget] directory becomes \<hello-widget\>\</hello-widget\>
+Each directory of your project is compiled to a custom html tag.  e.g. _hello-widget_ directory becomes _\<hello-widget\>\</hello-widget\>_
 
-	containing
+	object directory files
 		- created.js -- called when your <custom-tag></custom-tag> is created.
 			- this['body'] = body.html contents (also the shadow dom default content)
 			- this['anyname'] = anyname.html contents.
