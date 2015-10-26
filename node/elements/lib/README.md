@@ -80,6 +80,9 @@ Each sub-directory of your project generates a custom html tag.  e.g. the **hell
 		- *.html file content is provided to created.js as a this['filename'] property.
 
 
+
+## using npm
+
 Standard npm packages may be added to your application
 
 	npm i --save package-name

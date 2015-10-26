@@ -1,6 +1,6 @@
 {
   "name": "nimble-elements",
-  "version": "0.1.41",
+  "version": "0.1.42",
   "description": "Lightweight Web Application Framework - 2015.10.26",
   "bin": {
     "nimble": "./bin/nimble"
