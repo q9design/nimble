@@ -13,7 +13,7 @@
 
 # compile/run
 
-	* type __nimble__ to compile to _build
+	* type nimble to compile
 
 	view your application by browsing to _build/index.html   --  tip: use live-server --wait=350 _build
 
@@ -31,9 +31,9 @@ Nimble Elements is fortified with
 
 Bringing to your browser based web application
 
-	- new javascript features 
+	- new javascript features
 	- npm libraries
-	- <custom-tags></custom-tags>
+	- \<custom-tags\>\</custom-tags\>
 
 
 Bundled into two files
