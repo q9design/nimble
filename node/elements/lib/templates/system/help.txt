@@ -1,0 +1,10 @@
+#nimble elements help
+
+
+	install:  sudo npm i -g nimble-elements
+
+	  build:  edit source. run nimble (from your development folder.) repeat.
+
+	 deploy:  copy ./_build index.html & bundle.js
+
+

@@ -1,7 +1,7 @@
 {
   "name": "nimble-elements",
-  "version": "0.1.3",
-  "description": "Lightweight Web Application Framework - 2015.10.20",
+  "version": "0.1.41",
+  "description": "Lightweight Web Application Framework - 2015.10.26",
   "bin": {
     "nimble": "./bin/nimble"
   },
@@ -35,6 +35,7 @@
     "del": "^2.0.2",
     "fs-extra": "^0.24.0",
     "glob": "^5.0.15",
+    "marked": "^0.3.5",
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1"
   }

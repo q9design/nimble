@@ -1,7 +1,8 @@
-sudo npm i -g   // from this folder to install locally
-
-or from npm...
-
 sudo npm i -g nimble-elements
+
+if developing can install from local copy using ... sudo npm i -g   // from this folder
+
+
+
 
 

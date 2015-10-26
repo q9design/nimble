@@ -6,7 +6,7 @@
 
 	  build:  nimble (from your development folder)
 
-	 deploy:  copy ./build index.html & bundle.js
+	 deploy:  copy ./_build index.html & bundle.js
 
 -------------------------------------------------------------
 
@@ -50,7 +50,7 @@ nimble
 ##############
 3. DEVELOP AND RUN
 
-live-server --wait=500 .build
+live-server --wait=500 _build
 
 [root]
 	- index.html 
@@ -70,12 +70,12 @@ live-server --wait=500 .build
 * reference your custom elements (note: single word elements will be prefixed with "x-")
 	<x-main></x-main>
 
-> nimble ... to recompile to build folder >> .build
+> nimble ... to recompile to build folder >> _build
 
 	creates
 	------------
-	- ./build/index.html
-	- ./build/bundles.js
+	- ./_build/index.html
+	- ./_build/bundles.js
 	
 ##############
 
@@ -85,8 +85,8 @@ live-server --wait=500 .build
 4. DEPLOY
 
 copy
-	- ./build/index.html
-	- ./build/bundles.js
+	- ./_build/index.html
+	- ./_build/bundles.js
 
 to your runtime location
 
@@ -100,10 +100,5 @@ to your runtime location
 	browse to index.html
 
 ##############
-
-
-------------------------------------------
-
-WE MAKE NO GUARANTEES OR WARRANTIES FOR THIS SOFTWARE .. however we hope it works great for you! :)
 
 

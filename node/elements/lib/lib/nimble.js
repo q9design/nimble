@@ -1,5 +1,5 @@
 //
-// 2015.10.20 -- nimble.js
+// 2015.10.26 -- nimble.js
 //
 
 
@@ -14,6 +14,7 @@ var glob = Promise.promisify(require('glob'))
 var del = require('del')
 var copyfiles = Promise.promisify(require('copyfiles'))
 var fse = Promise.promisifyAll(require('fs-extra'))
+var exec = require('child_process').exec
 
 var argv = require('minimist')(process.argv.slice(2));
 
@@ -21,7 +22,7 @@ var argv = require('minimist')(process.argv.slice(2));
 var exports = module.exports = {}
 
 var err = function(e){console.log(chalk.white.bold.bgRed(' err ')+chalk.red.bold.bgWhite(" "+e+" "),e.stack)}
-var log = v=>console.log('log',v)
+var log = function(v){console.log('log',v)}
 
 
 // ----------------------------------------
@@ -31,8 +32,9 @@ exports.build = function(opts){
 	if(!opts) opts = {}
 
 	var source_path = path.resolve(opts.source_path || process.cwd())
-	var dest_name = '.build'
+	var dest_name = '_build'
 	var dest_path = path.resolve(source_path+"/"+dest_name)  // !! CONTENTS OF THIS PATH ARE DELETED EVERY RUN !!
+	var temp_path = dest_path+"/temp"
 
 	var template_path = path.resolve(__dirname+'/../templates') // upg: overridable templates (by string or path etc)
 
@@ -41,25 +43,40 @@ exports.build = function(opts){
 
 	var system_templates = {}
 	
-	console.log('nimble process >>> ',chalk.green(source_path),'to',chalk.red(dest_path),'using',chalk.yellow(template_path))
+	console.log('nimble process >>> ',chalk.green(source_path),'to',chalk.grey.bold(dest_path),'using',chalk.yellow(template_path))
 
 	var bootstrap = function(){
 		return new Promise(function(res,rej){
 			if(argv.bootstrap){
 				var src = bootstrap_template_path+"/basic"
 				var dest = source_path
-				console.log("bootstrap",chalk.green(src),'to',chalk.red(dest))
+				console.log("bootstrap",chalk.green(src),'to',chalk.grey.bold(dest))
 
-				fse.copyAsync(src,dest,{clobber:false}).then(res).catch(rej)
+				fse.copyAsync(src,dest,{clobber:false}).then(function(v){
+
+					exec('npm install',function(err,stdout,stderr){ //upg: as promise
+						console.log(stdout,stderr)
+						res(v)
+						})//exec
+
+					}).catch(rej)
 				}//if
 			else
 				res(true)
 			})//func
 		}//func
 
+
+	
 	// ----------
+	if(argv.h || argv.help){
+		fs.readFileAsync(system_template_path+"/help.txt").then(function(d){
+			console.log(d.toString())
+			}).catch(err)
+		}//if
+	else
 	bootstrap().then(function(){
-		return mkdirp(dest_path)
+		return mkdirp(temp_path)
 		}).
 		then(function(r){
 			//load system_templates
@@ -75,12 +92,12 @@ exports.build = function(opts){
 		then(function(r){
 			console.log('loaded system_templates',r)//system_templates,r)		
 
-			var d = [dest_path+"/*.js",dest_path+"/*.html"]
+			var d = [temp_path+"/*.js",temp_path+"/*.html"]
 			return del(d)
 			}).
 		then(function(r){ //upg: fse.emptyDir
 			console.log('deleted old build files',r)
-			return copyfiles(['*.js',dest_path])
+			return copyfiles(['*.js',temp_path])
 			}).
 		then(function(r){
 			return fs.readdirAsync(source_path)
@@ -119,10 +136,10 @@ exports.build = function(opts){
 
 						out = out.replace("</head>",head+"</head>")
 						fs.writeFileAsync(dest_path+"/index.html",out).then(function(){
-							return fs.writeFileAsync(dest_path+"/main.js",m)						
+							return fs.writeFileAsync(temp_path+"/main.js",m)						
 							}).
 							then(function(){
-								browserify(dest_path+'/main.js',{debug:true}).
+								browserify(temp_path+'/main.js',{debug:true}).
 								transform(babelify).
 								bundle().
 								on('error',rej).
@@ -144,7 +161,7 @@ exports.build = function(opts){
 
 				})//func
 			}).
-			then(v=>{
+			then(function(v){
 				console.log(chalk.green.bold('READY.'))
 				}).
 		catch(err)
@@ -161,7 +178,7 @@ exports.build = function(opts){
 
 			console.log('pp',pp)
 
-			var fn = dest_path+"/"+pp.base+".js"
+			var fn = temp_path+"/"+pp.base+".js"
 			console.log('build',v,'->',fn)
 
 			var tagname = pp.name

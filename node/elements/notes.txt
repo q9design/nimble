@@ -2,6 +2,14 @@ next: finish world clock app
 
 upg:
 
+	- fill out templates/system/help.txt  (mention in readme.md .. nimble --help to learn more)
+
+	- move temp path to system /tmp/nimble_hash(full_path_to_here) or
+	    optionally? by request -t = /path/to/temp/folder
+
+	- compile all to index.html (no bundle.js)  -- bundle bundle.js into local index.html file.
+
+
 	nimble --bootstrap (or --no-bootstrap) .. if folder empty?  (global config possible?)
 
 	system to watch for changes to source files and run nimble build on changes
@@ -10,12 +18,15 @@ upg:
 
 	(optionally: nimble --bootstrap)  .. generates example framework in current directly.. (ask if dir isn't empty)
 
+	- document adding libs to your project to require('./lib.js')
+
 	upg: nimble --example  .. generates example app
 
 	upg: copy media to ./build/media/	//upg: option to include media to this.media['name'] as dataurl and or option as blob. into bundle.js or other options? (lib hook to install to indexedDB?)
 		- but for now use a local ../media folder?
 
-	upg: bundle bundle.js into local index.html file.
+
+	upg: auto reload via reload.txt file (inc number) .. load every 1 second via fetch type thing. (so can local reload) .. only durring dev mode.
 
 	upg: support for service worker? (perhaps a dual app? .. installer/loader app, and loaded updateable indexedDB app?)
 
@@ -23,11 +34,13 @@ upg:
 
 	upg: nimble -v .. display current version (taken from package.json? .. or a designed way?)
 
-	upg: nimble --bootstrap-list   .. list possable bootstrap options (how can we get tab to do this?)
+	upg: nimble --bootstrap
+		upg: nimble --bootstrap-list   .. list possable bootstrap options (how can we get tab to do this?)
 
-	upg: nimble -bootstrap examples .. expl look for examples that are very direct to nimble (less it's own code needed)
+		upg: nimble -bootstrap examples .. expl look for examples that are very direct to nimble (less it's own code needed)
 
-	upg: nimble --bootstrap world-clocks .. to warn/manage if already have files in dest path
+		upg: nimble --bootstrap world-clocks .. to warn/manage if already have files in dest path
+
 
 	upg?: should we make the app in an app/ folder.. this way could have multple within the same?  (or why not just do that on your own and nimble from each one?)
 
@@ -35,8 +48,11 @@ upg:
 
 	upg: bootstrap example how to use npm packages (moment)
 
+	upg: nimble --bootstrap <namehere> ... pull from registry of nimble bootstrap apps, have a way to add your own local bootstrap list, --bootstrap-list .. shows the items available (upg: --bootstrap-search?)
 
+	upg: debug data as option (noramally not included in bundle.js)
 
+	upg: md version of helps?
 
 
 nimble-node-element
@@ -45,3 +61,5 @@ nimble-node-element
 	- upg: auto dependentcies so can nest/reuse.
 
 perhaps nimble node elements should be it's own project (instead of all the node versions) .. upg: split nimble versions to single target projects? (how to do that cascade reference like?) .. perhaps only in npm have it seperate?
+
+

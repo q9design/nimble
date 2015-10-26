@@ -29,3 +29,5 @@ upg:
 
 upg: nimble --live   ... automaticly monitors files for changes.. runs web server.. updates build and reloads webserver on change.
 	(upg: update only internal objects when internal object changes)
+
+upg: eventually make mainsteam nimble verions their own repository (and maintain a master nimble for historical and full set copyies?)

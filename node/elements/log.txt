@@ -1,0 +1,8 @@
+2015.10.26
+	- [am]  : check in later to see if there's a require('npm') sorta way to npm init.
+		- "npm init" on bootstraping
+		- changed .build > _build (windows?)
+		- add /temp location.
+		- removed es+ references "=>" in nimble.js (so to work in older node versions)
+		- nimble --help
+		- modify lib/README.md
