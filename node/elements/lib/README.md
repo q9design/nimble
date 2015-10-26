@@ -81,7 +81,7 @@ Each sub-directory of your project generates a custom html tag.  e.g. the **hell
 
 
 
-## using npm
+## npm packages
 
 Standard npm packages may be added to your application
 
