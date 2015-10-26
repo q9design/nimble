@@ -37,7 +37,7 @@ Nimble Elements is fortified with
 Bringing to your browser based application
 
 	- new javascript features
-	- npm libraries
+	- npm packages
 	- <custom-tags></custom-tags>
 
 
