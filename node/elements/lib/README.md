@@ -5,18 +5,20 @@
 
 # setup
 
-	mkdir myproject
-	cd myproject
+	> mkdir myproject
+	> cd myproject
 
-	nimble --bootstrap
+	> nimble --bootstrap
 
 
 # compile/run
 
-	* type nimble to compile
+	> nimble 
 
-	view your application by browsing to _build/index.html   --  tip: use live-server --wait=350 _build
+	view your application by browsing to _build/index.html
 
+
+**tip:** live-server --wait=350 _build
 
 
 ------------------------------------------
@@ -42,7 +44,7 @@ Bundled into two files
 	- bundle.js
 
 
-From a set of element objects and files
+From a set of element objects and files (files and folders)
 
 	+ [myproject]
 
@@ -63,9 +65,9 @@ From a set of element objects and files
 		- index.html
 	
 
-Each directory of your project is compiled to a custom html tag.  e.g. _hello-widget_ directory becomes _\<hello-widget\>\</hello-widget\>_
+Each directory of your project generates a custom html tag.  e.g. **hello-widget** directory becomes **\<hello-widget\>\</hello-widget\>**
 
-	object directory files
+	element files
 		- created.js -- called when your <custom-tag></custom-tag> is created.
 			- this['body'] = body.html contents (also the shadow dom default content)
 			- this['anyname'] = anyname.html contents.
