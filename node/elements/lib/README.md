@@ -18,7 +18,9 @@
 	view your application by browsing to _build/index.html
 
 
-**tip:** live-server --wait=350 _build
+**tip:** 
+	npm i live-server
+	live-server --wait=350 _build
 
 
 ------------------------------------------
