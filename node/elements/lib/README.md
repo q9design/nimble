@@ -33,7 +33,7 @@ Bringing to your browser based web application
 
 	- new javascript features
 	- npm libraries
-	- \<custom-tags\>\</custom-tags\>
+	- <custom-tags></custom-tags>
 
 
 Bundled into two files
@@ -43,22 +43,25 @@ Bundled into two files
 
 
 From a set of element objects and files
+	+ [myproject]
+		+ [display-box]
+			| body.html
+			| left.html
+			| right.html
+			| created.js
 
-	- [display-box]
-		- body.html
-		- left.html
-		- right.html
-		- created.js
-	- [hello-widget]
-		- body.html
-		- created.js
-	- [x-main]
-		- body.html
-		- created.js
-	- index.html
+		+ [hello-widget]
+			| body.html
+			| created.js
 
+		+ [x-main]
+			| body.html
+			| created.js
 
-Each directory of your project is compiled to a custom html tag.  e.g. [hello-widget] directory becomes <hello-widget></hello-widget>
+		- index.html
+	
+
+Each directory of your project is compiled to a custom html tag.  e.g. [hello-widget] directory becomes \<hello-widget\>\</hello-widget\>
 
 	containing
 		- created.js >> called when your <custom-tag></custom-tag> is created.
