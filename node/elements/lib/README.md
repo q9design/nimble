@@ -92,4 +92,14 @@ And included using require
 
 	var p = require('package-name')
 
+## application requirements
+	Applications use the fairly new html features
+		* [Custom Elements](http://w3c.github.io/webcomponents/spec/custom/)
+		* [Shadow Dom](http://www.w3.org/TR/shadow-dom/)
+
+	And so will run in browsers support these features (as of Oct 2015)
+		* Chrome
+		* Opera
+		* (Firefox - with a flag setting)
+
 
