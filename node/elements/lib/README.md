@@ -54,9 +54,9 @@ From a collection of element files and objects (files and folders)
 
 		+ [display-box]
 			| body.html
+			| created.js
 			| left.html
 			| right.html
-			| created.js
 
 		+ [hello-widget]
 			| body.html
@@ -111,7 +111,7 @@ And will run in supporting browsers  (as of Oct 2015)
 
 
 
-## try it out! - code sample (run from an empty directory)
+## try it out! - sample code (run from an empty directory)
 
     nimble --bootstrap myproject
 
