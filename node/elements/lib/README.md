@@ -20,11 +20,12 @@
 
 **tip:** 
 
-	npm i live-server
+	npm i -g live-server
 	live-server --wait=350 _build
 
 
-------------------------------------------
+---
+
 # About Nimble Elements
 
 Nimble Elements is fortified with
@@ -47,7 +48,7 @@ Bundled into two files
 	- bundle.js
 
 
-From a set of element files and objects (files and folders)
+From a collection of element files and objects (files and folders)
 
 	+ [myproject]
 
@@ -68,22 +69,25 @@ From a set of element files and objects (files and folders)
 		- index.html
 	
 
-Each sub-directory of your project generates a custom html tag.  e.g. the **hello-widget** directory becomes **\<hello-widget\>\</hello-widget\>**
+Each sub-directory generates a custom html tag which can be used anywhere in your project
 
-	directory contents
+     hello-widget directory generates a <hello-widget></hello-widget> element
+
+**directory contents:**
+
 		- created.js -- called when an instance of your <custom-tag></custom-tag> is created.
-			- 'this' is the instance of the created element.
-			- this['body'] = body.html contents (also the shadow dom default content.)
-			- this['anyname'] = anyname.html contents.
-			- var dom = your custom tag's shadow dom object.
+			'this' is the instance of the created element.
+			 this['body'] = body.html contents (also the shadow dom default content.)
+			 this.anyname = anyname.html contents.
+			 var dom = your custom tag's shadow dom object.
 
-		- *.html file content is provided to created.js as a this['filename'] property.
+  	  - *.html file content is provided to created.js as a this[*] / this.* property.  (e.g. bob.html > this['bob'])
 
 
 
 ## npm packages
 
-Standard npm packages may be added to your application
+Many standard npm packages can be added to your application
 
 	npm i --save package-name
 
@@ -92,14 +96,30 @@ And included using require
 
 	var p = require('package-name')
 
+
 ## application requirements
-	Applications use the fairly new html features
-		* [Custom Elements](http://w3c.github.io/webcomponents/spec/custom/)
-		* [Shadow Dom](http://www.w3.org/TR/shadow-dom/)
+Applications use relatively new html features
 
-	And so will run in browsers support these features (as of Oct 2015)
-		* Chrome
-		* Opera
-		* (Firefox - with a flag setting)
+   * [Custom Elements](http://w3c.github.io/webcomponents/spec/custom/) - [can i use]( http://caniuse.com/#feat=custom-elements)
+   * [Shadow Dom](http://www.w3.org/TR/shadow-dom/) - [can i use](http://caniuse.com/#feat=shadowdom)
+
+And will run in supporting browsers  (as of Oct 2015)
+
+   * Chrome
+   * Opera
+   * (Firefox - with a flag setting)
 
 
+
+## try it out! - code sample (run from an empty directory)
+
+    nimble --bootstrap myproject
+
+
+## final words, notes & suggestions
+
+Nimble elements goes well with [electron](http://electron.atom.io/)
+
+Currently under early development... questions, comments, requests welcome.
+
+Thanks for using nimble-elements!

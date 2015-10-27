@@ -6,3 +6,9 @@
 		- removed es+ references "=>" in nimble.js (so to work in older node versions)
 		- nimble --help
 		- modify lib/README.md
+
+2015.10.27
+	- [am] : like the way the docs are shaping up
+		- improve docs
+		- add --bootstrap project-name option
+		- add myproject bootstrap sample.

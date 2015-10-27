@@ -31,3 +31,46 @@ upg: nimble --live   ... automaticly monitors files for changes.. runs web serve
 	(upg: update only internal objects when internal object changes)
 
 upg: eventually make mainsteam nimble verions their own repository (and maintain a master nimble for historical and full set copyies?)
+
+
+> nimble-elments readme.md
+	> gif .. snake bootstrap
+	> try it out (demo code) (run from an empty directory)
+
+		nimble --bootstrap myproject
+		nimble --bootstrap snake
+		nimble --bootstrap world-clocks
+
+		nimble --bootstrap-list (even more examples)
+
+	> learn more
+		nimble --help  
+
+
+	> fortify with (some as opitons to other fortifications)
+		> https://github.com/webcomponents/webcomponentsjs ?
+		> minimize
+		> source map
+
+
+
+> ne-wIDE  -W-I-D-E-
+
+		- chrome/android/opera (firefox flag)
+
+
+		(could we legacy with shadow dom?)
+
+
+> split features so...
+	- compiler is dissconneted from fs.  (all function calls with data)
+	- nimble-elements-cli compiler is standalone ... uses nimble-elements-engine
+	- nimble-elements --service-worker .. to create sw app. (or some setup .. figure as closer)
+	- wide can use nee. (nimble-elements-engine)
+
+> bootstraps
+	> templating example
+
+> import data files img files at first? then any non *.html *.js file.
+
+> how to include our own .js files.. perhaps require({{here}}/filename.js)?  .. how might map to wide.

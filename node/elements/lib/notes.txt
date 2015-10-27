@@ -1,6 +1,11 @@
-sudo npm i -g nimble-elements
+# install
 
-if developing can install from local copy using ... sudo npm i -g   // from this folder
+	sudo npm i -g nimble-elements
+
+
+# nimble developer install from local copy
+
+	sudo npm i -g .  // from this folder
 
 
 

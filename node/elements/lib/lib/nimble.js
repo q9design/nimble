@@ -1,5 +1,5 @@
 //
-// 2015.10.26 -- nimble.js
+// 2015.10.27 -- nimble.js
 //
 
 
@@ -48,7 +48,12 @@ exports.build = function(opts){
 	var bootstrap = function(){
 		return new Promise(function(res,rej){
 			if(argv.bootstrap){
-				var src = bootstrap_template_path+"/basic"
+				var rl = { //upg: check path for existance (and nice4fn escape) instead of specific list.
+					"myproject" : bootstrap_template_path+"/myproject"
+					}
+
+				var src = rl[argv.bootstrap] || bootstrap_template_path+"/basic"
+
 				var dest = source_path
 				console.log("bootstrap",chalk.green(src),'to',chalk.grey.bold(dest))
 
