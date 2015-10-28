@@ -41,6 +41,8 @@ upg:
 
 
 
+	- make myproject code match readme doc code.
+
 	- add nimble --bootstrap-list
 
 	- allow boostrap only from list (directory scan based)
