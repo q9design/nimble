@@ -82,19 +82,20 @@ Each sub-directory generates a custom html tag which can be used anywhere in you
 **created.js sample code**
 
 ```javascript
-// called when an instance of a custom tag is created.
+// created.js code is called when an instance of it's custom element is created.
 
 // "this" is the instance of the created element.
-// var dom = your custom tag's shadow dom object.
+// var dom = your custom element's shadow dom object.  (defaults to body.html)
 
 var $ = require('jquery')       // include npm packages
 var _ = require('underscore')
 
-var h = this.head   // this.head / this['head'] is head.html contents
-var b = this.body   // body.html is the default shadow content.
-var f = this.footer // anything.html file content maps to this.anything
+// *.html file content maps to this.* / this['*']
+var h = this.head    // head.html contents
+var b = this.body    // body.html contents
+var f = this.footer  // footer.html contents
 
-dom.innerHTML = h+b+f  
+dom.innerHTML = h+b+f  // provide content
 
 // when your instance is attached or detatched from the dom
 this.attached = function(){ console.log('hi!') }
