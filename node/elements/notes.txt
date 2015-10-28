@@ -45,6 +45,8 @@ upg:
 
 	- improve nimble --help
 
+	- make public upcoming features?
+
 	- add "Adam Mitchell" <adam.mitchell@q9design.com> address to contact info
 
 	- fill out templates/system/help.txt  (mention in readme.md .. nimble --help to learn more)

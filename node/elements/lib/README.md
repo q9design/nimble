@@ -69,20 +69,20 @@ From a collection of element files and objects (files and folders)
 		- index.html
 	
 
-Each sub-directory generates a custom html tag which can be used anywhere in your project
+Each sub-directory generates a custom html element which can be used anywhere in your project
 
-     hello-widget directory generates a <hello-widget></hello-widget> element
+     for example the hello-widget directory generates a <hello-widget></hello-widget> element
 
 **sub-directory contents**
 
-		- created.js -- called when an instance of your <custom-tag></custom-tag> is created.
-		- *.html file content is provided to created.js as a this[*] / this.* property.  (e.g. bob.html > this['bob'])
+		- created.js -- called when an instance of the <hello-widget></hello-widget> element is created.
+		- *.html file content is provided to created.js as a this[*] / this.* property.  (e.g. body.html > this['body'])
 
 
 **created.js sample code**
 
 ```javascript
-// created.js code is called when an instance of it's custom element is created.
+// created.js code is called when an instance of it's custom element is created. 
 
 // "this" is the instance of the created element.
 // var dom = your custom element's shadow dom object.  (defaults to body.html)
@@ -91,11 +91,11 @@ var $ = require('jquery')       // include npm packages
 var _ = require('underscore')
 
 // *.html file content maps to this.* / this['*']
-var h = this.head    // head.html contents
+var l = this.left    // left.html contents
 var b = this.body    // body.html contents
-var f = this.footer  // footer.html contents
+var r = this.right   // right.html contents
 
-dom.innerHTML = h+b+f  // provide content
+dom.innerHTML = l+b+r  // provide content
 
 // when your instance is attached or detatched from the dom
 this.attached = function(){ console.log('hi!') }
@@ -106,6 +106,17 @@ this.onclick = e=>{ console.log('poke.') }
 var x = this.getAttribute('x')
 
 $('h1',dom).textContent(x)
+```
+
+
+**body.html sample code**
+
+```html
+<style>
+	:host {display: block}
+</style>
+
+Hello World!
 ```
 
 
