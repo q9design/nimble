@@ -73,27 +73,28 @@ Each sub-directory generates a custom html tag which can be used anywhere in you
 
      hello-widget directory generates a <hello-widget></hello-widget> element
 
-**directory contents:**
+**sub-directory contents**
 
 		- created.js -- called when an instance of your <custom-tag></custom-tag> is created.
-			'this' is the instance of the created element.
-			 this['body'] = body.html contents (also the shadow dom default content.)
-			 this.anyname = anyname.html contents.
-			 var dom = your custom tag's shadow dom object.
+		- *.html file content is provided to created.js as a this[*] / this.* property.  (e.g. bob.html > this['bob'])
 
-  	  - *.html file content is provided to created.js as a this[*] / this.* property.  (e.g. bob.html > this['bob'])
 
+**created.js sample code**
 
 ```javascript
-var $ = require('jquery')
+//"this" is the instance of the created element.
+// var dom = your custom tag's shadow dom object.
+
+var $ = require('jquery')       // include npm packages
 var _ = require('underscore')
 
-var h = this.head
-var b = this.body
-var f = this.footer 
+var h = this.head   // this.head / this['head'] is head.html contents
+var b = this.body   // body.html is also the default shadow content.
+var f = this.footer // anything.html content maps to this.anything
 
-dom.innerHTML = h+b+f
+dom.innerHTML = h+b+f  
 
+// called when your instance is attached or detatched from the dom
 this.attached = function(){ console.log('hi!') }
 this.detached = function(){ console.log('bye!') }
 
