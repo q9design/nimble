@@ -73,16 +73,16 @@ Each sub-directory generates a custom html element which can be used anywhere in
 
      for example the hello-widget directory generates a <hello-widget></hello-widget> element
 
-**sub-directory contents**
+**element sub-directory contents**
 
-		- created.js -- called when an instance of the <hello-widget></hello-widget> element is created.
+		- created.js -- called each time an instance of it's element is created. 
 		- *.html file content is provided to created.js as a this[*] / this.* property.  (e.g. body.html > this['body'])
 
 
 **created.js sample code**
 
 ```javascript
-// created.js code is called when an instance of it's custom element is created. 
+// created.js code is called each time an instance of it's element is created. 
 
 // "this" is the instance of the created element.
 // var dom = your custom element's shadow dom object.  (defaults to body.html)
@@ -139,7 +139,7 @@ Applications use relatively new html features
    * [Custom Elements](http://w3c.github.io/webcomponents/spec/custom/) - [can i use]( http://caniuse.com/#feat=custom-elements)
    * [Shadow Dom](http://www.w3.org/TR/shadow-dom/) - [can i use](http://caniuse.com/#feat=shadowdom)
 
-And run in supporting browsers  (as of Oct 2015)
+That run natively in supporting browsers  (as of Oct 2015)
 
    * Chrome
    * Opera
@@ -159,3 +159,4 @@ Nimble elements goes well with [electron](http://electron.atom.io/)
 Currently under early development... questions, comments, requests welcome.
 
 Thanks for using nimble-elements!
+
