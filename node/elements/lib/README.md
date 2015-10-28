@@ -69,7 +69,7 @@ From a collection of element files and objects (files and folders)
 		- index.html
 	
 
-Each sub-directory generates a custom html element which can be used anywhere in your project
+Each sub-directory automatically generates a custom html element which can be used anywhere in your project
 
      for example the hello-widget directory generates a <hello-widget></hello-widget> element
 
@@ -117,6 +117,19 @@ $('h1',dom).textContent(x)
 </style>
 
 Hello World!
+```
+
+**index.html** - Your app begins with a single index.html file in your project root.
+```html
+<!doctype html>
+<html>
+	<head>
+		<title>My Project</title>
+	</head>
+	<body>
+		<x-main></x-main>
+	</body>
+</html>
 ```
 
 
