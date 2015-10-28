@@ -3,6 +3,7 @@ next:
 	snake
 	video gif
 	created.js code sample in README.md
+	make nimble.git the lib portion (where to put the master.. nimble-family / nimble-family?) .. and change repo link in npm json.
 
 
 npm publish ...
