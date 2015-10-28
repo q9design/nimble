@@ -84,6 +84,27 @@ Each sub-directory generates a custom html tag which can be used anywhere in you
   	  - *.html file content is provided to created.js as a this[*] / this.* property.  (e.g. bob.html > this['bob'])
 
 
+```javascript
+var $ = require('jquery')
+var _ = require('underscore')
+
+var h = this.head
+var b = this.body
+var f = this.footer 
+
+dom.innerHTML = h+b+f
+
+this.attached = function(){ console.log('hi!') }
+this.detached = function(){ console.log('bye!') }
+
+this.onclick = e=>{ console.log('poke.') }
+
+var x = this.getAttribute('x')
+
+$('h1',dom).textContent(x)
+```
+
+
 
 ## npm packages
 
@@ -103,7 +124,7 @@ Applications use relatively new html features
    * [Custom Elements](http://w3c.github.io/webcomponents/spec/custom/) - [can i use]( http://caniuse.com/#feat=custom-elements)
    * [Shadow Dom](http://www.w3.org/TR/shadow-dom/) - [can i use](http://caniuse.com/#feat=shadowdom)
 
-And will run in supporting browsers  (as of Oct 2015)
+And run in supporting browsers  (as of Oct 2015)
 
    * Chrome
    * Opera

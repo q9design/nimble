@@ -1,6 +1,48 @@
-next: finish world clock app
+next:
+	bootstrap-list
+	snake
+	video gif
+	created.js code sample in README.md
+
+
+npm publish ...
+	install from local.. test in current.. npm publish
+
 
 upg:
+	- add bootstrap snake, webrtc, packages, hello-world (same as basic or nothing but index.html? with hello world in it.?)
+	- add bootstrap snake video as gif at top of page.
+		- install nimble
+		- mkdir
+		- bootstrap snake
+		- open
+
+	- add basic created code to help .. created.js sample code (as a code block)
+		var $ = require('jquery')
+		var _ = require('underscore')
+
+		var h = this.head
+		var b = this.body
+		var f = this.footer 
+
+		dom.innerHTML = h+b+f
+
+		this.attached = function(){ console.log('hi!') }
+		this.detached = function(){ console.log('bye!') }
+
+		this.onclick = e=>{ console.log('poke.') }
+
+		var x = this.getAttribute('x')
+
+		$('h1',dom).textContent(x)
+
+
+
+	- add nimble --bootstrap-list
+
+	- allow boostrap only from list (directory scan based)
+
+	- improve nimble --help
 
 	- add "Adam Mitchell" <adam.mitchell@q9design.com> address to contact info
 
@@ -9,7 +51,11 @@ upg:
 	- move temp path to system /tmp/nimble_hash(full_path_to_here) or
 	    optionally? by request -t = /path/to/temp/folder
 
+	- option to build output something like... nimble --bootstrap world-zones --out ./my-world-zones    <<< makes new folder if not exist.
+
 	- compile all to index.html (no bundle.js)  -- bundle bundle.js into local index.html file.
+
+	- in bootstrap examples.. make some that are kinda like lessons or challenages .. could be as simple as leaveing todos: .. and perhaps a open one and 'solved' versions to check for answers.
 
 
 	nimble --bootstrap (or --no-bootstrap) .. if folder empty?  (global config possible?)
@@ -65,3 +111,5 @@ nimble-node-element
 perhaps nimble node elements should be it's own project (instead of all the node versions) .. upg: split nimble versions to single target projects? (how to do that cascade reference like?) .. perhaps only in npm have it seperate?
 
 
+2015.10.28
+	- [am] finish world-zones, check -h, --help. add -v --version

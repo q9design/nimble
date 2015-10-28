@@ -1,5 +1,5 @@
 //
-// 2015.10.26
+// 2015.10.28
 // 
 
 // upg: auto models
@@ -14,7 +14,7 @@ p.createdCallback = function(){
 	this._name = name
 	this._shadow = dom
 
-	this.attributeChangedCallback = function(){}
+	this.attributechangedCallback = function(){}
 	this.attachedCallback = function(){}
 	this.detachedCallback = function(){}
 
@@ -28,18 +28,19 @@ p.createdCallback = function(){
 
 	}
 
+//attributechanged
 p.attributeChangedCallback = function(name,oldVal,newVal){
 	//console.log('attr change {{tagname}}',name,oldVal,newVal)
 	this.attributeChangedCallback(name,oldVal,newVal)
 	}
 
-
+//attached
 p.attachedCallback = function(){
 	//console.log('attached {{tagname}}')
 	this.attachedCallback()
 	}
 
-
+//detached
 p.detachedCallback = function(){
 	//console.log('detached {{tagname}}')
 	this.detachedCallback()

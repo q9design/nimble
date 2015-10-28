@@ -1,5 +1,5 @@
 //
-// 2015.10.27 -- nimble.js
+// 2015.10.28 -- nimble.js
 //
 
 
@@ -27,7 +27,7 @@ var log = function(v){console.log('log',v)}
 
 // ----------------------------------------
 exports.build = function(opts){
-	console.log('build opts',opts)
+	//console.log('build opts',opts)
 
 	if(!opts) opts = {}
 
@@ -43,13 +43,12 @@ exports.build = function(opts){
 
 	var system_templates = {}
 	
-	console.log('nimble process >>> ',chalk.green(source_path),'to',chalk.grey.bold(dest_path),'using',chalk.yellow(template_path))
-
 	var bootstrap = function(){
 		return new Promise(function(res,rej){
 			if(argv.bootstrap){
 				var rl = { //upg: check path for existance (and nice4fn escape) instead of specific list.
-					"myproject" : bootstrap_template_path+"/myproject"
+					"myproject" : bootstrap_template_path+"/myproject",
+					"world-zones" : bootstrap_template_path+"/world-zones"
 					}
 
 				var src = rl[argv.bootstrap] || bootstrap_template_path+"/basic"
@@ -79,97 +78,106 @@ exports.build = function(opts){
 			console.log(d.toString())
 			}).catch(err)
 		}//if
-	else
-	bootstrap().then(function(){
-		return mkdirp(temp_path)
-		}).
-		then(function(r){
-			//load system_templates
-			return glob(system_template_path+"/*.js").each(function(item,index,value){
-				var b = path.parse(item).base
+	else 
+	// ----------
+	if(argv.v || argv.version){
+		var p = require(__dirname+'/../package.json') // http://stackoverflow.com/questions/9153571/is-there-a-way-to-get-version-from-package-json-in-nodejs-code
+		console.log(p.name,p.version)
+		}//if
+		else {
+		console.log('nimble process >>> ',chalk.green(source_path),'to',chalk.grey.bold(dest_path),'using',chalk.yellow(template_path))
 
-				return fs.readFileAsync(item).then(function(r){
-					system_templates[b] = r.toString()
-					})//each
-
-				})//func
+		bootstrap().then(function(){
+			return mkdirp(temp_path)
 			}).
-		then(function(r){
-			console.log('loaded system_templates',r)//system_templates,r)		
+			then(function(r){
+				//load system_templates
+				return glob(system_template_path+"/*.js").each(function(item,index,value){
+					var b = path.parse(item).base
 
-			var d = [temp_path+"/*.js",temp_path+"/*.html"]
-			return del(d)
-			}).
-		then(function(r){ //upg: fse.emptyDir
-			console.log('deleted old build files',r)
-			return copyfiles(['*.js',temp_path])
-			}).
-		then(function(r){
-			return fs.readdirAsync(source_path)
-			}).
-		then(function(r){
-			console.log('source objects',r)
-			return new Promise(function(res,rej){
+					return fs.readFileAsync(item).then(function(r){
+						system_templates[b] = r.toString()
+						})//each
 
-				var out = ''
-				var mods = []
-
-				// ----------
-				var next = function(){
-					if(r.length > 0){
-						var v = r.pop()
-						fs.statAsync(v).then(function(r){
-							if(r.isDirectory() && v != dest_name && v != 'node_modules'){  // upg: smarter
-								console.log(v)
-								mods.push(v)
-								return buildObject(source_path+'/'+v)
-								}
-							}).catch(rej).then(next)
-						}
-					else{	// finalize
-						//console.log('oo',out)
-
-						var m = ''
-						mods.forEach(function(v){
-							m += "require('./"+v+".js')\n"
-							})
-
-
-						var head = //"<!-- upg: bring this local -->\n"+
-							//"<base href='../'>"+
-							"<script src='bundle.js'></script>\n"
-
-						out = out.replace("</head>",head+"</head>")
-						fs.writeFileAsync(dest_path+"/index.html",out).then(function(){
-							return fs.writeFileAsync(temp_path+"/main.js",m)						
-							}).
-							then(function(){
-								browserify(temp_path+'/main.js',{debug:true}).
-								transform(babelify).
-								bundle().
-								on('error',rej).
-								pipe(fs.createWriteStream(dest_path+'/bundle.js')).
-								on('finish',res)
-								})
-						}//else
-					}//func
-
-
-				// ----------
-				fs.readFileAsync(source_path+"/index.html").then(function(r){
-						out = r.toString()
-						}).
-					catch(function(){}). // it's ok if we didn't find it.
-					then(next)
-
-
-
-				})//func
-			}).
-			then(function(v){
-				console.log(chalk.green.bold('READY.'))
+					})//func
 				}).
-		catch(err)
+			then(function(r){
+				console.log('loaded system_templates',r)//system_templates,r)		
+
+				var d = [temp_path+"/*.js",temp_path+"/*.html"]
+				return del(d)
+				}).
+			then(function(r){ //upg: fse.emptyDir
+				console.log('deleted old build files',r)
+				return copyfiles(['*.js',temp_path])
+				}).
+			then(function(r){
+				return fs.readdirAsync(source_path)
+				}).
+			then(function(r){
+				console.log('source objects',r)
+				return new Promise(function(res,rej){
+
+					var out = ''
+					var mods = []
+
+					// ----------
+					var next = function(){
+						if(r.length > 0){
+							var v = r.pop()
+							fs.statAsync(v).then(function(r){
+								if(r.isDirectory() && v != dest_name && v != 'node_modules'){  // upg: smarter
+									console.log(v)
+									mods.push(v)
+									return buildObject(source_path+'/'+v)
+									}
+								}).catch(rej).then(next)
+							}
+						else{	// finalize
+							//console.log('oo',out)
+
+							var m = ''
+							mods.forEach(function(v){
+								m += "require('./"+v+".js')\n"
+								})
+
+
+							var head = //"<!-- upg: bring this local -->\n"+
+								//"<base href='../'>"+
+								"<script src='bundle.js'></script>\n"
+
+							out = out.replace("</head>",head+"</head>")
+							fs.writeFileAsync(dest_path+"/index.html",out).then(function(){
+								return fs.writeFileAsync(temp_path+"/main.js",m)						
+								}).
+								then(function(){
+									browserify(temp_path+'/main.js',{debug:true}).
+									transform(babelify).
+									bundle().
+									on('error',rej).
+									pipe(fs.createWriteStream(dest_path+'/bundle.js')).
+									on('finish',res)
+									})
+							}//else
+						}//func
+
+
+					// ----------
+					fs.readFileAsync(source_path+"/index.html").then(function(r){
+							out = r.toString()
+							}).
+						catch(function(){}). // it's ok if we didn't find it.
+						then(next)
+
+
+
+					})//func
+				}).
+				then(function(v){
+					console.log(chalk.green.bold('READY.'))
+					}).
+			catch(err)
+		}//else
 
 
 

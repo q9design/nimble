@@ -4,15 +4,19 @@
 
 //upg: stop ticking when removed.
 
-//upg: know world codes (where find a list of them)
-
 //upg: support property change offsetHours, offset
 
 //upg: support attribute change offsetHours, offset
 
 //upg: support offset in seconds
 
+//upg: day of week optional / format string attribute
+
+// we could use moment and such for local formats/names, but this example is sans packages to keep things focused.
+
 var MSPERHOUR = 60*60*1000
+
+var dow_table = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
 this.attributeChangedCallback = function(name,oldVal,newVal){
 	console.log('cc',name,oldVal,newVal)
@@ -29,7 +33,7 @@ else
 
 
 var tick = n=>{
-	console.log('tick',this.offset/MSPERHOUR)
+	//console.log('tick',this.offset/MSPERHOUR)
 
 	// draw
 	var d = Date.now()
@@ -44,7 +48,9 @@ var tick = n=>{
 	var fM = m<10?'0'+m:m
 	var  fS = s<10?'0'+s:s
 
-	dom.innerHTML  = `${fH}:${fM}:${fS}`
+	var dow = dow_table[dd.getUTCDay()]
+
+	dom.innerHTML  = `${fH}:${fM}:${fS} ${dow}`
 
 	setTimeout(tick,1000)
 	}//func
