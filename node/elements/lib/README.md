@@ -85,7 +85,7 @@ Each sub-directory generates a custom html element which can be used anywhere in
 // created.js code is called each time an instance of it's element is created. 
 
 // "this" is the instance of the created element.
-// var dom = your custom element's shadow dom object.  (defaults to body.html)
+// var dom = the element's shadow dom object.  (defaults to body.html)
 
 var $ = require('jquery')       // include npm packages
 var _ = require('underscore')
@@ -97,7 +97,7 @@ var r = this.right   // right.html contents
 
 dom.innerHTML = l+b+r  // provide content
 
-// when your instance is attached or detatched from the dom
+// when an instance is attached or detatched from the dom
 this.attached = function(){ console.log('hi!') }
 this.detached = function(){ console.log('bye!') }
 

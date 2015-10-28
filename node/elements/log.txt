@@ -12,3 +12,7 @@
 		- improve docs
 		- add --bootstrap project-name option
 		- add myproject bootstrap sample.
+
+
+2015.10.28
+	- [am] finish world-zones, check -h, --help. add -v --version, adjust docs

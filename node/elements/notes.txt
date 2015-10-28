@@ -18,6 +18,8 @@ upg:
 		- bootstrap snake
 		- open
 
+	- generate a single index.html (embed <script> instead of reference)
+
 	- add basic created code to help .. created.js sample code (as a code block)
 		var $ = require('jquery')
 		var _ = require('underscore')
@@ -114,5 +116,3 @@ nimble-node-element
 perhaps nimble node elements should be it's own project (instead of all the node versions) .. upg: split nimble versions to single target projects? (how to do that cascade reference like?) .. perhaps only in npm have it seperate?
 
 
-2015.10.28
-	- [am] finish world-zones, check -h, --help. add -v --version
