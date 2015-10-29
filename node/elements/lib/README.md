@@ -1,4 +1,4 @@
-![](https://raw.githubusercontent.com/q9design/nimble/master/node/elements/lib/media/demo.gif]
+![](https://raw.githubusercontent.com/q9design/nimble/master/node/elements/lib/media/demo.gif)
 
 
 # install
