@@ -1,9 +1,7 @@
 next:
-	bootstrap-list
-	snake
-	video gif
-	created.js code sample in README.md
 	make nimble.git the lib portion (where to put the master.. nimble-family / nimble-family?) .. and change repo link in npm json. .. to incubator.
+	- generate a single index.html (embed <script> instead of reference)
+
 
 
 npm publish ...
@@ -15,13 +13,16 @@ npm publish ...
 
 upg:
 	- add bootstrap snake, webrtc, packages, hello-world (same as basic or nothing but index.html? with hello world in it.?)
-	- add bootstrap snake video as gif at top of page.
+
+	--bootstrap basic-framework (live-display, live-forms, flow, mustache, handlebars, underscore, jquery, etc (see populars?), minimist?, bluebird, validator)
+
+
+	- add bootstrap snake video as gif at top of page. .. next: beter quality
 		- install nimble
 		- mkdir
 		- bootstrap snake
 		- open
 
-	- generate a single index.html (embed <script> instead of reference)
 
 	- option on bootstraping to customize fields --interactive (name, version etc) .. kinda like npm init .. to fill {{fields}} in template files.
 
@@ -145,3 +146,16 @@ perhaps nimble node elements should be it's own project (instead of all the node
 
 
 =================
+
+2015.10.28
+	- [am]
+	created.js code sample in README.md
+
+
+2015.10.29
+	- [am]
+	bootstrap-list
+	snake
+	video gif
+
+
