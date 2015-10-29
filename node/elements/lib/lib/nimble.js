@@ -42,40 +42,92 @@ exports.build = function(opts){
 	var bootstrap_template_path = path.resolve(template_path+'/bootstrap') // upg: overridable templates (by string or path etc)
 
 	var system_templates = {}
+
+	var bootstrapList = function(){
+		return new Promise((res,rej)=>{
+			glob(bootstrap_template_path+"/*/").then(v=>{
+
+				var r = []
+				v.forEach(v=>{
+					var vv = path.parse(v)
+					var n = vv.name
+
+					//upg: smarter auto description from package.json // also format to a table
+					//var p = require(v+'package.json')
+					var d = ''//p.description
+				
+
+					r.push({name:n,description:d})
+					})
+				res(r)
+				}).catch(rej)
+
+			})//func
+		}//func
 	
 	var bootstrap = function(){
 		return new Promise(function(res,rej){
 			if(argv.bootstrap){
-				var rl = { //upg: check path for existance (and nice4fn escape) instead of specific list.
-					"myproject" : bootstrap_template_path+"/myproject",
-					"world-zones" : bootstrap_template_path+"/world-zones"
-					}
 
-				var src = rl[argv.bootstrap] || bootstrap_template_path+"/basic"
+				var bn = argv.bootstrap === true ? 'basic' : argv.bootstrap // world-zones
 
-				var dest = source_path
-				console.log("bootstrap",chalk.green(src),'to',chalk.grey.bold(dest))
+				bootstrapList().then(v=>{
 
-				fse.copyAsync(src,dest,{clobber:false}).then(function(v){
 
-					exec('npm install',function(err,stdout,stderr){ //upg: as promise
-						console.log(stdout,stderr)
-						res(v)
-						})//exec
+					var vv = v.filter(v=>v.name==bn) // v.find
+					if(vv.length > 0){ // found name match
+
+						var src = bootstrap_template_path+"/"+bn
+
+						var dest = source_path
+						console.log("bootstrap",chalk.green(src),'to',chalk.grey.bold(dest))
+
+						fse.copyAsync(src,dest,{clobber:false}).then(function(v){
+
+							exec('npm install',function(err,stdout,stderr){ //upg: as promise
+								console.log(stdout,stderr)
+								res(v)
+								})//exec
+
+							}).catch(rej)
+
+
+
+						}//if
+					else	{
+						console.log(chalk.red.bold('could not find',bn,'boostrap'))
+						//res(false)
+						}
 
 					}).catch(rej)
 				}//if
 			else
 				res(true)
+
 			})//func
 		}//func
 
 
-	
+	// ----------
+	if(argv['bootstrap-list']){
+		bootstrapList().then(v=>{
+				console.log('available projects')
+				v.forEach(v=>{
+					var n = v.name
+					console.log('  --bootstrap',n)
+					})
+
+			}).catch(err)
+		}//if
+	else 
 	// ----------
 	if(argv.h || argv.help){
 		fs.readFileAsync(system_template_path+"/help.txt").then(function(d){
+			//upg: include name, date and version number in help output.
+
 			console.log(d.toString())
+
+			//upg: include bundled project names in help output.
 			}).catch(err)
 		}//if
 	else 
@@ -85,9 +137,9 @@ exports.build = function(opts){
 		console.log(p.name,p.version)
 		}//if
 		else {
-		console.log('nimble process >>> ',chalk.green(source_path),'to',chalk.grey.bold(dest_path),'using',chalk.yellow(template_path))
 
 		bootstrap().then(function(){
+			console.log('nimble process >>> ',chalk.green(source_path),'to',chalk.grey.bold(dest_path),'using',chalk.yellow(template_path))
 			return mkdirp(temp_path)
 			}).
 			then(function(r){

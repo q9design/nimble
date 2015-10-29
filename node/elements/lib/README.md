@@ -23,7 +23,6 @@
 	npm i -g live-server
 	live-server --wait=350 _build
 
-
 ---
 
 # About Nimble Elements
@@ -159,10 +158,14 @@ That run natively in supporting browsers  (as of Oct 2015)
    * (Firefox - with a flag setting)
 
 
-
 ## try it out! - sample code (run from an empty directory)
 
     nimble --bootstrap myproject
+
+
+## learn more
+
+	nimble --help
 
 
 ## final words, notes & suggestions

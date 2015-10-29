@@ -3,12 +3,15 @@ next:
 	snake
 	video gif
 	created.js code sample in README.md
-	make nimble.git the lib portion (where to put the master.. nimble-family / nimble-family?) .. and change repo link in npm json.
+	make nimble.git the lib portion (where to put the master.. nimble-family / nimble-family?) .. and change repo link in npm json. .. to incubator.
 
 
 npm publish ...
 	install from local.. test in current.. npm publish
 
+
+
+-------------
 
 upg:
 	- add bootstrap snake, webrtc, packages, hello-world (same as basic or nothing but index.html? with hello world in it.?)
@@ -19,6 +22,8 @@ upg:
 		- open
 
 	- generate a single index.html (embed <script> instead of reference)
+
+	- option on bootstraping to customize fields --interactive (name, version etc) .. kinda like npm init .. to fill {{fields}} in template files.
 
 	- add basic created code to help .. created.js sample code (as a code block)
 		var $ = require('jquery')
@@ -39,7 +44,11 @@ upg:
 
 		$('h1',dom).textContent(x)
 
+	- upg: normally operate in 'quiet' mode unless -v
 
+	- upg: nimble --docs .. make docs? .. or whole system of learning.. perhaps interactive text application?
+
+	- nimble for electron might be nice.. as woudln't have to run live server.
 
 	- make myproject code match readme doc code.
 
@@ -118,3 +127,21 @@ nimble-node-element
 perhaps nimble node elements should be it's own project (instead of all the node versions) .. upg: split nimble versions to single target projects? (how to do that cascade reference like?) .. perhaps only in npm have it seperate?
 
 
+
+=================
+2015.10.29 demo script
+
+	sudo npm i -g nimble-elements
+
+	mkdir snake
+	cd snake
+
+	nimble --bootstrap snake
+
+	ls -l
+
+	browser.. enter.  -- file://home/demo/snake/_build/index.html
+
+
+
+=================
