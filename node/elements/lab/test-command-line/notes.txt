@@ -1,5 +1,0 @@
-./nimble
-
-./nimble -h
-
-./nimble --bootstrap

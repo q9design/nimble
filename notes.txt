@@ -3,6 +3,8 @@ Object Application Builder  -- create an application out of object componants.
 
 -----------------------------
 
+next: make regular nimble repace the project one.
+
 next: build framework
 	- index.html
 	- [hello]
@@ -10,6 +12,12 @@ next: build framework
 		- created.js  // dom.innerHTML = 'HI!'
 			      // this.onattached = function(){}
 			      // this.onremoved = function(){}  
+
+
+
+upg: what's a good way to have nimble-elements as it's own single git, and have a bigger nimble for the whole project? .. do we need the whole project, or make old versions each a project?
+	- perhaps a git within a git?
+
 
 next: upgrade npm details
 	- description

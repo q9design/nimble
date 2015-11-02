@@ -14,7 +14,7 @@ npm publish ...
 upg:
 	- add bootstrap snake, webrtc, packages, hello-world (same as basic or nothing but index.html? with hello world in it.?)
 
-	--bootstrap basic-framework (live-display, live-forms, flow, mustache, handlebars, underscore, jquery, etc (see populars?), minimist?, bluebird, validator)
+
 
 
 	- add bootstrap snake video as gif at top of page. .. next: beter quality

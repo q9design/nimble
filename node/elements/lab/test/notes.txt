@@ -1,3 +1,0 @@
-test local lib
-
-node test.js
