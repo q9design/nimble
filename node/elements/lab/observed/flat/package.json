@@ -1,0 +1,14 @@
+{
+  "name": "flat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lab.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Adam <adam.mitchell@q9design.com>",
+  "license": "ISC",
+  "dependencies": {
+    "observed": "^1.1.1"
+  }
+}
