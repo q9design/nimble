@@ -3,6 +3,13 @@ Object Application Builder  -- create an application out of object componants.
 
 -----------------------------
 
+	upg: config .hjson .yaml .json
+
+	nimble --watch
+
+see: 
+	Jekyll
+
 next: make regular nimble repace the project one.
 
 next: build framework
@@ -39,6 +46,8 @@ upg: nimble --live   ... automaticly monitors files for changes.. runs web serve
 	(upg: update only internal objects when internal object changes)
 
 upg: eventually make mainsteam nimble verions their own repository (and maintain a master nimble for historical and full set copyies?)
+
+upg: option to use seperate files (so can have site with micro updates with rsync or git)
 
 
 > nimble-elments readme.md
