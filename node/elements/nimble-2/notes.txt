@@ -1,9 +1,18 @@
 next:
 
+	bring up to speed with current nimble-elements, refresh npm.
 
 
+upg: control how much babelify (default, special features etc, --target=chrome,firefox perhaps)
+upg: --production (uglified, no source map)
+upg: --electron (no babelify, no browserify)  (--target=electron)
 
+upg: sub folders use -- so  x/y/z == <x--y--z></x--y--z>    (my-node/y/z > <my-node--y--z>)
 
+upg: sub folders control (by control files)
 
 
 upg: split nimble-core.js to it's own repository.
+
+framework
+	+ mondernizer/uhoh.
